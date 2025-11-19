@@ -1,0 +1,9 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# PICO-8 export images
+*.p8.png
+
+# Archivos temporales
+*.tmp
