@@ -3,34 +3,37 @@ version 43
 __lua__
 function _init()
 	--variables
-	ship=60
+	ship_x=60
 	ship_y=110
-	speed=2
+	speed_x=2
+	speed_y=2
 end
 
 function _update()
-	--controls
-	speed=0
+	--control horizontal
+	speed_x=0
 	if btn(0) then
-		speed=-2
+		speed_x=-2
 	end
 	if btn(1) then
-		speed=2
+		speed_x=2
 	end
+	--control vertical
+	
 	--moving variable
-	ship=ship+speed
+	ship_x=ship_x+speed_x
 	--wall block
-	if ship>=120 then
-		ship=120
+	if ship_x>=120 then
+		ship_x=120
 	end
- if ship<=0 then
-		ship=0
+ if ship_x<=0 then
+		ship_x=0
 	end
 end
 
 function _draw()
 	cls(1)
-	spr(1,ship,ship_y)
+	spr(1,ship_x,ship_y)
 end
 __gfx__
 00000000000880000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
