@@ -5,13 +5,12 @@ function _init()
 	--variables
 	ship_x=60
 	ship_y=110
-	speed_x=2
-	speed_y=2
 end
 
 function _update()
 	--control horizontal
 	speed_x=0
+	speed_y=0
 	if btn(0) then
 		speed_x=-2
 	end
@@ -19,15 +18,28 @@ function _update()
 		speed_x=2
 	end
 	--control vertical
+	if btn(2) then
+		speed_y=-2
+	end
+	if btn(3) then
+		speed_y=2
+	end
 	
 	--moving variable
 	ship_x=ship_x+speed_x
+	ship_y=ship_y+speed_y
 	--wall block
 	if ship_x>=120 then
 		ship_x=120
 	end
  if ship_x<=0 then
 		ship_x=0
+	end
+	if ship_y>=120 then
+		ship_y=120
+	end
+ if ship_y<=0 then
+		ship_y=0
 	end
 end
 
