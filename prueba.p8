@@ -2,24 +2,35 @@ pico-8 cartridge // http://www.pico-8.com
 version 43
 __lua__
 function _init()
-	
+	--variables
+	ship=60
+	ship_y=110
+	speed=2
 end
 
 function _update()
-	--if btn
+	--controls
+	speed=0
+	if btn(0) then
+		speed=-2
+	end
+	if btn(1) then
+		speed=2
+	end
+	--moving variable
+	ship=ship+speed
+	--wall block
+	if ship>=120 then
+		ship=120
+	end
+ if ship<=0 then
+		ship=0
+	end
 end
 
 function _draw()
-	--background
-	cls(0)
-	--circ(63,63,20,1)
-	circfill(63,63,80,1)
-	rect(0,0,127,127,2)
-	--rectfill(60,60,67,67,2)
-	--objects
-	spr(001,60,80)
-	spr(002,60,20)
-	spr(003,60,70)
+	cls(1)
+	spr(1,ship,ship_y)
 end
 __gfx__
 00000000000880000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
