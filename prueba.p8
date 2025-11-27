@@ -5,9 +5,15 @@ function _init()
 	--variables
 	ship_x=60
 	ship_y=110
+	
+	bulletx=60
+	bullety=30
 end
 
 function _update()
+ --variables tempo
+ bulspd_x=1
+	bulspd_y=1
 	--control horizontal
 	speed_x=0
 	speed_y=0
@@ -24,10 +30,20 @@ function _update()
 	if btn(3) then
 		speed_y=2
 	end
+	--botones de accion
+	if btn(4) then
+		print("o",20,20,3)
+	end
+	if btn(5) then
+		print("x")
+	end
 	
-	--moving variable
+	--moving variable of ship
 	ship_x=ship_x+speed_x
 	ship_y=ship_y+speed_y
+	--moving variable of bullet
+	bullet_x=bullet_x+bulspd_x
+	bullet_y=bullet_y+bulspd_y
 	--wall block
 	if ship_x>=120 then
 		ship_x=120
@@ -46,6 +62,7 @@ end
 function _draw()
 	cls(1)
 	spr(1,ship_x,ship_y)
+	spr(3,bulletx,bullety)
 end
 __gfx__
 00000000000880000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
